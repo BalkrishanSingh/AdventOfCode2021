@@ -1,14 +1,11 @@
-def  read_binary(file_name):
-    clean_data  = []
-    with open(file_name,'r+') as f:
-        data  = f.readlines()
-        for binary in data:
-            clean_binary =  [bit for bit in binary.strip()]
-            clean_data.append(clean_binary)
-    return clean_data
+def get_input(file_name):
+    with open(file_name,'r') as f:
+        data  = [line.strip() for line in f]
+        binary_list =[[x for x in bin_num] for bin_num in data]
+        return binary_list
 
 def main():
-    binary_data = read_binary('input.txt')
+    binary_data = get_input('./Day-3/input.txt')
     binary_len = len(binary_data[0])
     epsilon = '0b'
     gamma = '0b'
